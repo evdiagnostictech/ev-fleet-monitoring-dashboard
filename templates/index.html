@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>EV Fleet Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>EV Fleet Monitoring Dashboard</h1>
+
+    {% for vehicle in vehicles %}
+
+    <div class="card">
+
+        <h2>{{ vehicle.name }}</h2>
+
+        <p>🔋 Battery: {{ vehicle.battery }}%</p>
+
+        <div class="battery-bar">
+
+            <div class="battery-fill"
+                 style="width: {{ vehicle.battery }}%;">
+
+            </div>
+
+        </div>
+
+        <p>🌡 Temperature: {{ vehicle.temperature }}°C</p>
+
+        <p>🚗 Range: {{ vehicle.range }} km</p>
+
+        <p>⚡ Status: {{ vehicle.status }}</p>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+</body>
+</html>
